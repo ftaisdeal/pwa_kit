@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Progressive Web App package</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#444444" />
+  <meta name="description" content="Progressive Web App package" />
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="shortcut icon" href="favicon-32.png" type="image/x-icon" />
+  <link rel="icon" sizes="192x192" href="apple-touch-icon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <script src="sw.js"></script>
+  <script src="app.js"></script>
+
+</head>
+
+<body onload="runFetch()">
+
+  <h1>Progressive Web App package</h1>
+
+  <div class="container" id="container">
+    <span class="green">Connectivity established.</span>
+  </div>
+
+  <h3>Overview</h3>
+  This package provides a complete set of files for a Progressive Web App that gets a perfect score from Google
+  Lighthouse for a PWA. Use these files as a basis for building your own PWA.</p>
+  <o>For the package to work perfectly for you right out of the gate it must be run:</o>
+  <ol>
+    <li>Under its own domain or sub-domain</li>
+    <li>Using SSL</li>
+    <li>On a server with PHP</li>
+  </ol>
+  <P>The <em>app.js</em> file loaded by <em>index.html</em> registers a service worker and also checks for connectivity
+    by attempting to fetch a tiny PHP file.
+  </p>
+  <p>The PHP file only returns an HTTP header of <em>Access-Control-Allow-Origin: *</em> in order to avoid access
+    control blocking, which would invalidate the PWA.</p>
+  <p><strong>Service Worker</strong>
+    <br>The <em>sw.js</em> service worker file determines which files will be cached so that the PWA can still run
+    even when there is no connectivity. If connectivity cannot be esablished, a message will appear notifying the user.
+  </p>
+  <p>To establish which files will be cached, modify the <em>staticAssets</em> constant in the <em>sw.js</em> file.</p>
+  <p>To flush the user's cache and replace the set of files to be cached, change the <em>cacheName</em> constant in
+    <em>sw.js</em>.</p>
+  <p><strong>Web Manifest</strong>
+    <br>The <em>manifest.webmanifest</em> file is a JSON file containing settings for your PWA:</p>
+  <ul>
+    <li>short_name</li>
+    <li>name</li>
+    <li>scope</li>
+    <li>start_url</li>
+    <li>background_color</li>
+    <li>display</li>
+    <li>theme_color</li>
+    <li>icons</li>
+  </ul>
+</body>
+
+</html>
