@@ -15,29 +15,26 @@
   <link rel="icon" sizes="192x192" href="apple-touch-icon.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <script src="sw.js"></script>
-  <script src="app.js"></script>
-
 </head>
 
-<body onload="runFetch()">
+<body>
 
   <h1>Progressive Web App package</h1>
 
   <div class="container" id="container">
-    <span class="green">Connectivity established.</span>
+    <span class="checking">Checking connectivity...</span>
   </div>
 
   <h3>Overview</h3>
-  This package provides a complete set of files for a Progressive Web App that gets a perfect score from Google
-  Lighthouse for a PWA. Use these files as a basis for building your own PWA.</p>
-  <o>For the package to work perfectly for you right out of the gate it must be run:</o>
+  <p>This package provides a complete set of files for a Progressive Web App that gets a perfect score from Google
+    Lighthouse for a PWA. Use these files as a basis for building your own PWA.</p>
+  <p>For the package to work perfectly for you right out of the gate it must be run:</p>
   <ol>
     <li>Under its own domain or sub-domain</li>
     <li>Using SSL</li>
     <li>On a server with PHP</li>
   </ol>
-  <P>The <em>app.js</em> file loaded by <em>index.html</em> registers a service worker and also checks for connectivity
+  <p>The <em>app.js</em> file loaded by <em>index.html</em> registers a service worker and also checks for connectivity
     by attempting to fetch a tiny PHP file.
   </p>
   <p>The PHP file only returns an HTTP header of <em>Access-Control-Allow-Origin: *</em> in order to avoid access
@@ -48,9 +45,11 @@
   </p>
   <p>To establish which files will be cached, modify the <em>staticAssets</em> constant in the <em>sw.js</em> file.</p>
   <p>To flush the user's cache and replace the set of files to be cached, change the <em>cacheName</em> constant in
-    <em>sw.js</em>.</p>
+    <em>sw.js</em>.
+  </p>
   <p><strong>Web Manifest</strong>
-    <br>The <em>manifest.webmanifest</em> file is a JSON file containing settings for your PWA:</p>
+    <br>The <em>manifest.webmanifest</em> file is a JSON file containing settings for your PWA:
+  </p>
   <ul>
     <li>short_name</li>
     <li>name</li>
@@ -61,6 +60,8 @@
     <li>theme_color</li>
     <li>icons</li>
   </ul>
+
+  <script src="app.js"></script>
 </body>
 
 </html>

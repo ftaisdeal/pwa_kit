@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Offline - Progressive Web App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#444444" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="shortcut icon" href="favicon-32.png" type="image/x-icon" />
+</head>
+
+<body>
+  <h1>You're Offline</h1>
+
+  <div class="container">
+    <span class="red">✗ No internet connection detected.</span>
+  </div>
+
+  <h3>What you can do:</h3>
+  <ul>
+    <li>Check your internet connection</li>
+    <li>Try refreshing the page when back online</li>
+    <li>Some cached content may still be available</li>
+  </ul>
+
+  <button onclick="window.location.reload()" style="
+    background: #444; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 4px; 
+    cursor: pointer;
+    margin-top: 20px;
+  ">
+    Try Again
+  </button>
+
+  <script>
+    // Auto-retry when connection is restored
+    window.addEventListener('online', () => {
+      window.location.reload();
+    });
+  </script>
+</body>
+
+</html>
