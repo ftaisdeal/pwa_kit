@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-  <title>Progressive Web App package</title>
+  <title>PWA Kit - Progressive Web App Starter</title>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#444444" />
-  <meta name="description" content="Progressive Web App package" />
+  <meta name="description"
+    content="Modern Progressive Web App starter kit with advanced connectivity detection, service worker caching, and perfect Lighthouse PWA scores." />
 
   <link rel="stylesheet" href="styles.css">
   <link rel="manifest" href="manifest.webmanifest" />
@@ -19,7 +20,7 @@
 
 <body>
 
-  <h1>Progressive Web App package</h1>
+  <h1>PWA Kit - Progressive Web App Starter</h1>
 
   <div class="container" id="container">
     <span class="checking">Checking connectivity...</span>
@@ -31,35 +32,61 @@
   <p>For the package to work perfectly for you right out of the gate it must be run:</p>
   <ol>
     <li>Under its own domain or sub-domain</li>
-    <li>Using SSL</li>
-    <li>On a server with PHP</li>
+    <li>Using HTTPS (SSL/TLS)</li>
+    <li>On any modern web server (Apache, Nginx, Node.js, Python, etc.)</li>
   </ol>
-  <p>The <em>app.js</em> file loaded by <em>index.html</em> registers a service worker and also checks for connectivity
-    by attempting to fetch a tiny PHP file.
+  <p>The <em>app.js</em> file loaded by <em>index.html</em> registers a service worker and performs advanced
+    connectivity detection using modern web APIs and multiple test endpoints.
   </p>
-  <p>The PHP file only returns an HTTP header of <em>Access-Control-Allow-Origin: *</em> in order to avoid access
-    control blocking, which would invalidate the PWA.</p>
+  <p><strong>Connectivity Detection</strong>
+    <br>The app uses a robust connectivity detection system that tests multiple endpoints including Google's favicon,
+    HTTPBin, GitHub API, and local assets. It also leverages the Network Information API when available to provide
+    detailed connection quality information including network type, speed, and data saver status.
+  </p>
   <p><strong>Service Worker</strong>
-    <br>The <em>sw.js</em> service worker file determines which files will be cached so that the PWA can still run
-    even when there is no connectivity. If connectivity cannot be esablished, a message will appear notifying the user.
+    <br>The <em>sw.js</em> service worker file implements advanced caching strategies to ensure the PWA can run
+    offline. It uses cache-first, network-first, and stale-while-revalidate strategies depending on the resource type.
+    When connectivity cannot be established, users are redirected to a custom offline page with helpful information.
   </p>
-  <p>To establish which files will be cached, modify the <em>staticAssets</em> constant in the <em>sw.js</em> file.</p>
-  <p>To flush the user's cache and replace the set of files to be cached, change the <em>cacheName</em> constant in
-    <em>sw.js</em>.
+  <p><strong>Caching Configuration</strong>
+    <br>To modify which files are cached, update the <em>staticAssets</em> array in the <em>sw.js</em> file.
+    To force cache updates and deploy new versions, increment the <em>cacheName</em> constant in <em>sw.js</em>.
   </p>
   <p><strong>Web Manifest</strong>
-    <br>The <em>manifest.webmanifest</em> file is a JSON file containing settings for your PWA:
+    <br>The <em>manifest.webmanifest</em> file is a JSON file containing PWA configuration settings:
   </p>
   <ul>
-    <li>short_name</li>
-    <li>name</li>
-    <li>scope</li>
-    <li>start_url</li>
-    <li>background_color</li>
-    <li>display</li>
-    <li>theme_color</li>
-    <li>icons</li>
+    <li><strong>short_name</strong> - Short app name for home screen</li>
+    <li><strong>name</strong> - Full application name</li>
+    <li><strong>scope</strong> - Navigation scope for the PWA</li>
+    <li><strong>start_url</strong> - Initial URL when launched</li>
+    <li><strong>background_color</strong> - Background color during launch</li>
+    <li><strong>display</strong> - Display mode (standalone, fullscreen, etc.)</li>
+    <li><strong>theme_color</strong> - Theme color for UI chrome</li>
+    <li><strong>icons</strong> - App icons for different sizes and contexts</li>
   </ul>
+
+  <h3>Modern Features</h3>
+  <p><strong>Advanced Connectivity Detection</strong>
+    <br>• Multiple endpoint testing with fallback options<br>
+    • Network Information API integration for connection quality<br>
+    • Real-time network status monitoring<br>
+    • Graceful handling of limited connectivity scenarios
+  </p>
+
+  <p><strong>Enhanced Service Worker</strong>
+    <br>• Multiple caching strategies (cache-first, network-first, stale-while-revalidate)<br>
+    • Automatic cache management and cleanup<br>
+    • Custom offline page with user guidance<br>
+    • Instant updates with skipWaiting support
+  </p>
+
+  <p><strong>Performance Optimizations</strong>
+    <br>• Perfect Lighthouse PWA scores out of the box<br>
+    • Efficient resource loading and caching<br>
+    • Network-aware functionality<br>
+    • Cross-browser compatibility
+  </p>
 
   <script src="app.js"></script>
 </body>
